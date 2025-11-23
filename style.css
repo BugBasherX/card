@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background container */
+.background-container {
+    width: 100%;
+    min-height: 100vh;
+
+    background: url('bg.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.background-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    /* dark overlay for contrast */
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Dark theme adjustment */
+body.dark .background-container::before {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    transition: 0.5s ease;
+
+    background: linear-gradient(135deg, #3f2b96, #a8c0ff);
+}
+
+body.dark {
+    background: linear-gradient(135deg, #1f1f1f, #3c3c3c);
+}
+
+/* Glassy Card */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Profile Ring with gradient neon */
+.profile-ring {
+    width: 120px;
+    height: 120px;
+    padding: 5px;
+    border-radius: 50%;
+    background: conic-gradient(#00ffea, #2b06b1, #00ffea);
+    animation: rotateRing 6s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.profile-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes rotateRing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Name */
+.name {
+    font-size: 1.9rem;
+    margin-top: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Typing text */
+.typing {
+    font-size: 1.1rem;
+    margin-top: -5px;
+    color: #fff;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Bio */
+.bio {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    color: #eef;
+    line-height: 1.5rem;
+}
+
+/* Info */
+.info {
+    justify-content: center;
+    margin-top: 0.8rem;
+    text-align: left;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.info p {
+    margin-bottom: 0.4rem;
+}
+
+.info i {
+    margin-right: 8px;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.7rem 1.6rem;
+    background: linear-gradient(135deg, #00ffea, #200a6c);
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #00ffea, 0 0 20px #1f826a;
+}
+
+.btn.hire {
+    background: linear-gradient(135deg, #37268b, #00ffea);
+}
+
+/* Socials */
+.socials {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.socials i {
+    font-size: 1.6rem;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.socials i:hover {
+    transform: translateY(-5px) scale(1.3);
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea, 0 0 20px #ff00f7;
+}
+
+/* Theme toggle */
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.theme-toggle:hover {
+    color: #00ffea;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+    .container {
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+
+    .name {
+        font-size: 1.6rem;
+    }
+
+    .typing {
+        font-size: 1rem;
+    }
+}
